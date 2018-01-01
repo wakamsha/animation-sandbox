@@ -1,8 +1,10 @@
 import {Injectable} from '@angular/core';
-import {HelloComponent} from './components/hello.component';
+import {BitmapCompareComponent} from './components/bitmap-compare.component';
+import {BitmapCollision1} from './components/bitmap-collision1';
 
 export const chaps: any = {
-    'hello': HelloComponent
+    'bitmap-compare': BitmapCompareComponent,
+    'bitmap-collision': BitmapCollision1,
 };
 
 @Injectable()
