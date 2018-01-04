@@ -10,26 +10,29 @@ import {OvalComponent} from './components/oval.component';
 import {DistanceComponent} from './components/distance.component';
 import {MouseDistanceComponent} from './components/mouse-distance.component';
 import {PointerComponent} from './components/pointer.component';
+import {Chapter} from '../../../declares/interface';
 
-export const directory = 'chap03';
-
-export const chaps: any = {
-    'rotateToMouse' : RotateToMouseComponent,
-    'bobbing'       : BobbingComponent,
-    'wave1'         : Wave1Component,
-    'pulse'         : PulseComponent,
-    'random'        : RandomComponent,
-    'wave2'         : Wave2Component,
-    'circle'        : CircleComponent,
-    'oval'          : OvalComponent,
-    'distance'      : DistanceComponent,
-    'mouseDistance' : MouseDistanceComponent,
-    'pointer'       : PointerComponent
+export const chapter: Chapter = {
+    directory: 'chap03',
+    title: 'Chapter.03',
+    routes: {
+        'rotateToMouse' : RotateToMouseComponent,
+        'bobbing'       : BobbingComponent,
+        'wave1'         : Wave1Component,
+        'pulse'         : PulseComponent,
+        'random'        : RandomComponent,
+        'wave2'         : Wave2Component,
+        'circle'        : CircleComponent,
+        'oval'          : OvalComponent,
+        'distance'      : DistanceComponent,
+        'mouseDistance' : MouseDistanceComponent,
+        'pointer'       : PointerComponent
+    }
 };
 
 @Injectable()
 export class ChapService {
-    getchaps(): Promise<any> {
-        return Promise.resolve(chaps);
+    getChapter(): Promise<Chapter> {
+        return Promise.resolve(chapter);
     }
 }

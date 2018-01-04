@@ -3,20 +3,23 @@ import {DrawingAppComponent} from './components/drawing-app.component';
 import {DrawingCurveComponent} from './components/drawing-curve.component';
 import {MultiCurveComponent} from './components/multi-curve.component';
 import {FilterComponent} from './components/filter.component';
+import {Chapter} from '../../../declares/interface';
 
-export const directory = 'chap04';
-
-export const chaps: any = {
-    'drawing-app'   : DrawingAppComponent,
-    'drawing-curve' : DrawingCurveComponent,
-    'multi-curve'   : MultiCurveComponent,
-    'filter'        : FilterComponent
+export const chapter: Chapter = {
+    directory: 'chap04',
+    title: 'Chapter.04',
+    routes: {
+        'drawing-app'   : DrawingAppComponent,
+        'drawing-curve' : DrawingCurveComponent,
+        'multi-curve'   : MultiCurveComponent,
+        'filter'        : FilterComponent
+    }
 };
 
 @Injectable()
 export class ChapService {
 
-    getchaps(): Promise<any> {
-        return Promise.resolve(chaps);
+    getChapter(): Promise<Chapter> {
+        return Promise.resolve(chapter);
     }
 }

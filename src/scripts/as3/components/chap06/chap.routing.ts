@@ -1,7 +1,6 @@
-import {chaps, directory} from './chap.service';
+import {chapter} from './chap.service';
 import {ModuleWithProviders} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
 
-export const routes: Routes = Object.keys(chaps).map(name => ({ path: `${directory}/${name}`, component: chaps[name] }));
-
-export const routing: ModuleWithProviders = RouterModule.forChild(routes);
+export const routes: Routes = Object.keys(chapter.routes).map(name => ({path: `${chapter.directory}/${name}`, component: chapter.routes[name]}));
+export const chapRouting: ModuleWithProviders = RouterModule.forChild(routes);

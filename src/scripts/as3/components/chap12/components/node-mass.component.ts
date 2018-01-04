@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {baseOptions, BaseComponent} from '../../../../base.component';
+import {BaseComponent, baseOptions} from '../../base.component';
 import {Ball} from '../../../../domains/entities/Ball';
 
 @Component(baseOptions)
@@ -9,7 +9,7 @@ export class NodeMassComponent extends BaseComponent {
     private particles: Ball[];
     private numParticles = 30;
     private minDist = 150;
-    private springAmount = .0025;
+    private springAmount = 0.000001;
     private line: createjs.Shape;
 
     constructor(a: Title) {

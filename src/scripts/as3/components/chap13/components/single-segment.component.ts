@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {baseOptions, BaseComponent} from '../../../../base.component';
+import {BaseComponent, baseOptions} from '../../base.component';
 import {SimpleSlider} from '../../../../domains/entities/SimpleSlider';
 import {Segment} from '../../../../domains/entities/Segment';
 

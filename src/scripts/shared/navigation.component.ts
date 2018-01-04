@@ -1,5 +1,14 @@
 import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Chapter, Demo} from '../declares/interface';
+
+export type Section = {
+    title: string;
+    pages: Page[];
+}
+
+export type Page = {
+    directory: string;
+    name: string;
+}
 
 @Component({
     selector: 'navigation',
@@ -9,11 +18,11 @@ import {Chapter, Demo} from '../declares/interface';
         <i class="fa" [ngClass]="isExpanded ? 'fa-times' : 'fa-bars'"></i>
     </button>
     <div class="navigation__inner">
-        <div *ngFor="let chapter of chapters" class="navigation__section">
-            <h3 class="navigation__caption">{{chapter.title}}</h3>
+        <div *ngFor="let section of sections" class="navigation__section">
+            <h3 class="navigation__caption">{{section.title}}</h3>
             <ul class="navigation__list">
-                <li *ngFor="let demo of chapter.demos" class="navigation__list-item" [class.navigation__list-item--selected]="isSelected(demo.name, demo.directory)">
-                    <a (click)="select(demo.name, demo.directory)">{{capitalize(demo.name)}}</a>
+                <li *ngFor="let page of section.pages" class="navigation__list-item" [class.navigation__list-item--selected]="isSelected({name: page.name, directory: page.directory})">
+                    <a (click)="select({name: page.name, directory: page.directory})">{{capitalize(page.name)}}</a>
                 </li>
             </ul>
         </div>
@@ -24,7 +33,7 @@ import {Chapter, Demo} from '../declares/interface';
 export class NavigationComponent {
 
     @Input()
-    chapters: Chapter[];
+    sections: Section[];
 
     @Output()
     selected = new EventEmitter();
@@ -33,7 +42,10 @@ export class NavigationComponent {
 
     private selectedState: string;
 
-    isSelected(state: string, directory: string): boolean {
+    isSelected({state, directory}: {
+        state: string;
+        directory: string
+    }): boolean {
         return this.selectedState === `${directory}/${state}`;
     }
 
@@ -41,10 +53,13 @@ export class NavigationComponent {
         return `-${str}`.replace(/\-(\w)/g, (_, m) => m.toUpperCase());
     }
 
-    select(name: string, directory: string) {
+    select({name, directory}: {
+        name: string;
+        directory: string;
+    }) {
         this.selectedState = `${directory}/${name}`;
-        const demo: Demo = { directory, name };
-        this.selected.emit(demo);
+        const page: Page = { directory, name };
+        this.selected.emit(page);
     }
 
     toggleNavigationVisibility() {

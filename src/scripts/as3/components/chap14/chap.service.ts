@@ -2,19 +2,22 @@ import {Injectable} from '@angular/core';
 import {Perspective1Component} from './components/perspective1.component';
 import {Perspective2Component} from './components/perspective2.component';
 import {Velocity3DComponent} from './components/velocity-3d.component';
+import {Chapter} from '../../../declares/interface';
 
-export const directory = 'chap14';
-
-export const chaps: any = {
-    'perspective1' : Perspective1Component,
-    'perspective2' : Perspective2Component,
-    'velocity-3D'  : Velocity3DComponent
+export const chapter: Chapter = {
+    directory: 'chap14',
+    title: 'Chapter.14',
+    routes: {
+        'perspective1' : Perspective1Component,
+        'perspective2' : Perspective2Component,
+        'velocity-3D'  : Velocity3DComponent
+    }
 };
 
 @Injectable()
 export class ChapService {
 
-    getchaps(): Promise<any> {
-        return Promise.resolve(chaps);
+    getChapter(): Promise<Chapter> {
+        return Promise.resolve(chapter);
     }
 }

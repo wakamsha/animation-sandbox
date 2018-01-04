@@ -8,25 +8,28 @@ import {ChainComponent} from './components/chain.component';
 import {MultiSpringComponent} from './components/multi-spring.component';
 import {OffsetSpringComponent} from './components/offset-spring.component';
 import {DoubleSpringComponent} from './components/double-spring.component';
+import {Chapter} from '../../../declares/interface';
 
-export const directory = 'chap08';
-
-export const chaps: any = {
-    'easing'          : EasingComponent,
-    'easing-off'      : EasingOffComponent,
-    'easing-to-mouse' : EasingToMouseComponent,
-    'spring'          : SpringComponent,
-    'yo-yo'           : YoYOComponent,
-    'chain'           : ChainComponent,
-    'multi-spring'    : MultiSpringComponent,
-    'offset-spring'   : OffsetSpringComponent,
-    'double-spring'   : DoubleSpringComponent
+export const chapter: Chapter = {
+    directory: 'chap08',
+    title: 'Chapter.08',
+    routes: {
+        'easing'          : EasingComponent,
+        'easing-off'      : EasingOffComponent,
+        'easing-to-mouse' : EasingToMouseComponent,
+        'spring'          : SpringComponent,
+        'yo-yo'           : YoYOComponent,
+        'chain'           : ChainComponent,
+        'multi-spring'    : MultiSpringComponent,
+        'offset-spring'   : OffsetSpringComponent,
+        'double-spring'   : DoubleSpringComponent
+    }
 };
 
 @Injectable()
 export class ChapService {
 
-    getchaps(): Promise<any> {
-        return Promise.resolve(chaps);
+    getChapter(): Promise<Chapter> {
+        return Promise.resolve(chapter);
     }
 }

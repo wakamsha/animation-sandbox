@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {Ball} from '../../../../domains/entities/Ball';
-import {BaseComponent, baseOptions} from '../../../../base.component';
+import {BaseComponent, baseOptions} from '../../base.component';
 
 @Component(baseOptions)
 export class BobbingComponent extends BaseComponent {

@@ -7,24 +7,27 @@ import {OrbitDrawComponent} from './components/orbit-draw.component';
 import {NodeGardenComponent} from './components/node-garden.component';
 import {NodeGardenLineComponent} from './components/node-garden-line.component';
 import {NodeMassComponent} from './components/node-mass.component';
+import {Chapter} from '../../../declares/interface';
 
-export const directory = 'chap12';
-
-export const chaps: any = {
-    'particle'         : GravityComponent,
-    'gravity-bounce'   : GravityBounceComponent,
-    'gravity-random'   : GravityRandomComponent,
-    'orbit'            : OrbitComponent,
-    'orbit-draw'       : OrbitDrawComponent,
-    'node-garden'      : NodeGardenComponent,
-    'node-garden-line' : NodeGardenLineComponent,
-    'node-mass'        : NodeMassComponent
+export const chapter: Chapter = {
+    directory: 'chap12',
+    title: 'Chapter.12',
+    routes: {
+        'particle'         : GravityComponent,
+        'gravity-bounce'   : GravityBounceComponent,
+        'gravity-random'   : GravityRandomComponent,
+        'orbit'            : OrbitComponent,
+        'orbit-draw'       : OrbitDrawComponent,
+        'node-garden'      : NodeGardenComponent,
+        'node-garden-line' : NodeGardenLineComponent,
+        'node-mass'        : NodeMassComponent
+    }
 };
 
 @Injectable()
 export class ChapService {
 
-    getchaps(): Promise<any> {
-        return Promise.resolve(chaps);
+    getChapter(): Promise<Chapter> {
+        return Promise.resolve(chapter);
     }
 }

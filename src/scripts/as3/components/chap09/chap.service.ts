@@ -5,22 +5,25 @@ import {PointHitTestComponent} from './components/point-hit-test.component';
 import {DistanceComponent} from './components/distance.component';
 import {BubblesComponent} from './components/bubbles.component';
 import {bubbles2Component} from './components/bubbles2.component';
+import {Chapter} from '../../../declares/interface';
 
-export const directory = 'chap09';
-
-export const chaps: any = {
-    'object-hit-test' : ObjectHitTestComponent,
-    'boxes'           : BoxesComponent,
-    'point-hit-test'  : PointHitTestComponent,
-    'distance'        : DistanceComponent,
-    'bubbles1'        : BubblesComponent,
-    'bubbles2'        : bubbles2Component
+export const chapter: Chapter = {
+    directory: 'chap09',
+    title: 'Chapter.09',
+    routes: {
+        'object-hit-test' : ObjectHitTestComponent,
+        'boxes'           : BoxesComponent,
+        'point-hit-test'  : PointHitTestComponent,
+        'distance'        : DistanceComponent,
+        'bubbles1'        : BubblesComponent,
+        'bubbles2'        : bubbles2Component
+    }
 };
 
 @Injectable()
 export class ChapService {
 
-    getchaps(): Promise<any> {
-        return Promise.resolve(chaps);
+    getChapter(): Promise<Chapter> {
+        return Promise.resolve(chapter);
     }
 }

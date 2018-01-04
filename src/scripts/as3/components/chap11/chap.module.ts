@@ -1,14 +1,14 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {routing} from '../chap11/chap.routing';
-import {chaps, ChapService} from './chap.service';
+import {chapRouting} from '../chap11/chap.routing';
+import {chapter, ChapService} from './chap.service';
 
 @NgModule({
     imports: [
         CommonModule,
-        routing
+        chapRouting
     ],
-    declarations: Object.keys(chaps).map(name => chaps[name]),
+    declarations: Object.keys(chapter.routes).map(name => chapter.routes[name]),
     providers: [
         ChapService
     ]

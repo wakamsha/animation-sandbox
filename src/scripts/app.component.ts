@@ -11,7 +11,7 @@ import {Title} from '@angular/platform-browser';
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav">
                         <li><a class="nav-link" routerLink="/as3"     routerLinkActive="active">AS3</a></li>
-                        <li><a class="nav-link" routerLink="/oreilly" routerLinkActive="active">Oreilly AS3</a></li>
+                        <!--<li><a class="nav-link" routerLink="/oreilly" routerLinkActive="active">Oreilly AS3</a></li>-->
                     </ul>
                 </div>
             </div>

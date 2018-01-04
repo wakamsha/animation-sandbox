@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {baseOptions, BaseComponent} from '../../../../base.component';
+import {BaseComponent, baseOptions} from '../../base.component';
 
 @Component(baseOptions)
 export class FilterComponent extends BaseComponent {
