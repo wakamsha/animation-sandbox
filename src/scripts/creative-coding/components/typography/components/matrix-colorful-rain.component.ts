@@ -3,7 +3,7 @@ import {BaseComponent, baseOptions} from '../../base.component';
 import {Title} from '@angular/platform-browser';
 
 @Component(baseOptions)
-export class MatrixRainComponent extends BaseComponent {
+export class MatrixColorfulRainComponent extends BaseComponent {
 
     private FONT_FAMILY = 'arial';
     private FONT_SIZE = 10;
@@ -15,7 +15,7 @@ export class MatrixRainComponent extends BaseComponent {
 
     constructor(a: Title) {
         super(a);
-        this.title = 'Matrix Rain';
+        this.title = 'Matrix Colorful Rain';
     }
 
     ngOnInit() {
@@ -39,7 +39,7 @@ export class MatrixRainComponent extends BaseComponent {
 
         for (let i = 0; i < this.drops.length; i = (i + 1)|0) {
             const letter = this.letters[Math.floor(Math.random() * this.letters.length)];
-            this.ctx.fillStyle = 'rgb(0, 255, 0)';
+            this.ctx.fillStyle = this.getRandomColor();
             this.ctx.fillText(letter, this.FONT_SIZE * i, this.FONT_SIZE * this.drops[i]);
 
             if (Math.random() > .99) {
@@ -54,5 +54,10 @@ export class MatrixRainComponent extends BaseComponent {
         for (let i = 0; i < this.columns; i = (i + 1)|0) {
             this.drops[i] = Math.floor(Math.random() * this.stageHeight);
         }
+    }
+
+    private getRandomColor(): string {
+        const hue = new Date().getTime() / 50 % 360;
+        return `hsl(${hue}, 80%, 70%)`;
     }
 }

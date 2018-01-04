@@ -21,7 +21,7 @@ export type Page = {
         <div *ngFor="let section of sections" class="navigation__section">
             <h3 class="navigation__caption">{{section.title}}</h3>
             <ul class="navigation__list">
-                <li *ngFor="let page of section.pages" class="navigation__list-item" [class.navigation__list-item--selected]="isSelected({name: page.name, directory: page.directory})">
+                <li *ngFor="let page of section.pages" class="navigation__list-item" [class.navigation__list-item--selected]="isSelected({state: page.name, directory: page.directory})">
                     <a (click)="select({name: page.name, directory: page.directory})">{{capitalize(page.name)}}</a>
                 </li>
             </ul>
