@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {BaseComponent, baseOptions} from '../../base.component';
-import {SimpleSlider} from '../../../../domains/entities/SimpleSlider';
-import {Segment} from '../../../../domains/entities/Segment';
+import {SimpleSlider} from '../../../domains/entities/SimpleSlider';
+import {Segment} from '../../../domains/entities/Segment';
 
 @Component(baseOptions)
 export class SingleSegmentComponent extends BaseComponent {

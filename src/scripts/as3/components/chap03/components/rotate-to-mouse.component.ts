@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {baseOptions, BaseComponent} from '../../base.component';
-import {Arrow} from '../../../../domains/entities/Arrow';
+import {Arrow} from '../../../domains/entities/Arrow';
 import {Title} from '@angular/platform-browser';
 
 @Component(baseOptions)

@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {baseOptions, BaseComponent} from '../../base.component';
-import {Ball} from '../../../../domains/entities/Ball';
+import {Ball} from '../../../domains/entities/Ball';
 
 @Component(baseOptions)
 export class PulseComponent extends BaseComponent {

@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {BaseComponent, baseOptions} from '../../base.component';
-import {Ship} from '../../../../domains/entities/Ship';
-import {KeyType} from '../../../../domains/valueobjects/KeyType';
+import {Ship} from '../../../domains/entities/Ship';
+import {KeyType} from '../../../domains/valueobjects/KeyType';
 
 @Component(baseOptions)
 export class ShipSimComponent extends BaseComponent {

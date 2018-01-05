@@ -51,7 +51,7 @@ export class BaseComponent implements OnInit {
 
     private updateStageSize() {
         this.canvas.setAttribute('width', window.innerWidth.toString());
-        this.canvas.setAttribute('height', (window.innerHeight - 51).toString());
+        this.canvas.setAttribute('height', window.innerHeight.toString());
 
         this.right = this.stageWidth = this.canvas.width;
         this.bottom = this.stageHeight = this.canvas.height;

@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {BaseComponent, baseOptions} from '../../base.component';
-import {Ball} from '../../../../domains/entities/Ball';
-import {KeyType} from '../../../../domains/valueobjects/KeyType';
+import {Ball} from '../../../domains/entities/Ball';
+import {KeyType} from '../../../domains/valueobjects/KeyType';
 
 @Component(baseOptions)
 export class Perspective1Component extends BaseComponent {

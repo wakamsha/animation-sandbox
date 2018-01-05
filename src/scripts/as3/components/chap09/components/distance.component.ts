@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {BaseComponent, baseOptions} from '../../base.component';
-import {Ball} from '../../../../domains/entities/Ball';
+import {Ball} from '../../../domains/entities/Ball';
 import MouseEvent = createjs.MouseEvent;
 
 @Component(baseOptions)

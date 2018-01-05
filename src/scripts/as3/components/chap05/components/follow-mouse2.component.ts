@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {BaseComponent, baseOptions} from '../../base.component';
-import {Arrow} from '../../../../domains/entities/Arrow';
+import {Arrow} from '../../../domains/entities/Arrow';
 
 @Component(baseOptions)
 export class FollowMouse2Component extends BaseComponent {

@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {BaseComponent, baseOptions} from '../../base.component';
-import {Box} from '../../../../domains/entities/Box';
+import {Box} from '../../../domains/entities/Box';
 
 @Component(baseOptions)
 export class BoxesComponent extends BaseComponent {
