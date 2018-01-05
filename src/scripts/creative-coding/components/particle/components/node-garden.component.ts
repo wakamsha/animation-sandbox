@@ -22,8 +22,8 @@ export class NodeGardenComponent extends BaseComponent {
         super.init();
         this.particles = [];
         for (let i = 0; i < this.NUM_NODES; i++) {
-            const ball = this.createBall(3);
-            this.drawBall(ball);
+            const ball = this.createParticle(3);
+            this.drawParticle(ball);
             this.particles[i] = ball;
         }
         this.ctx.lineWidth = 1.5;
@@ -37,7 +37,7 @@ export class NodeGardenComponent extends BaseComponent {
             pA.x += pA.vx;
             pA.y += pA.vy;
             this.checkWalls(pA);
-            this.drawBall(pA);
+            this.drawParticle(pA);
 
             // 同じnode同士にならないように1つずらして総当たり
             for (let j = i + 1; j < this.NUM_NODES; j++) {
@@ -47,7 +47,7 @@ export class NodeGardenComponent extends BaseComponent {
         }
     }
 
-    private createBall(radius: number): Ball {
+    private createParticle(radius: number): Ball {
         const ball = new Ball(radius);
         ball.x = Math.round(Math.random() * this.stageWidth);
         ball.y = Math.round(Math.random() * this.stageHeight);
@@ -56,7 +56,7 @@ export class NodeGardenComponent extends BaseComponent {
         return ball;
     }
 
-    private drawBall(ball: Ball) {
+    private drawParticle(ball: Ball) {
         this.ctx.fillStyle = this.NODE_COLOR;
         this.ctx.beginPath();
         this.ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2, true);
