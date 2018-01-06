@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {baseOptions, BaseComponent} from '../../base.component';
+import {abstractOptions, AbstractComponent} from '../../abstract.component';
 
-@Component(baseOptions)
-export class MouseDistanceComponent extends BaseComponent {
+@Component(abstractOptions)
+export class MouseDistanceComponent extends AbstractComponent {
 
     private sprite1: createjs.Shape;
     private textField: createjs.Text;

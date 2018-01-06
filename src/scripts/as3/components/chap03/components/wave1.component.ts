@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
-import {baseOptions, BaseComponent} from '../../base.component';
+import {abstractOptions, AbstractComponent} from '../../abstract.component';
 import {Ball} from '../../../domains/entities/Ball';
 import {Title} from '@angular/platform-browser';
 
-@Component(baseOptions)
-export class Wave1Component extends BaseComponent {
+@Component(abstractOptions)
+export class Wave1Component extends AbstractComponent {
 
     private ball: Ball;
     private angle = 0;

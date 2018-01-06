@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {BaseComponent, baseOptions} from '../../base.component';
+import {AbstractComponent, abstractOptions} from '../../abstract.component';
 import {Ship} from '../../../domains/entities/Ship';
 import {KeyType} from '../../../domains/valueobjects/KeyType';
 
-@Component(baseOptions)
-export class ShipSimComponent extends BaseComponent {
+@Component(abstractOptions)
+export class ShipSimComponent extends AbstractComponent {
 
     private ship: Ship;
     private vr = 0;

@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {baseOptions, BaseComponent} from '../../base.component';
+import {abstractOptions, AbstractComponent} from '../../abstract.component';
 
-@Component(baseOptions)
-export class DistanceComponent extends BaseComponent {
+@Component(abstractOptions)
+export class DistanceComponent extends AbstractComponent {
 
     constructor(a: Title) {
         super(a);

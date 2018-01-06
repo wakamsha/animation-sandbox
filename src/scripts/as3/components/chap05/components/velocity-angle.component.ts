@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {BaseComponent, baseOptions} from '../../base.component';
+import {AbstractComponent, abstractOptions} from '../../abstract.component';
 import {Ball} from '../../../domains/entities/Ball';
 
-@Component(baseOptions)
-export class VelocityAngleComponent extends BaseComponent {
+@Component(abstractOptions)
+export class VelocityAngleComponent extends AbstractComponent {
 
     private ball: Ball;
     private angle = 45;

@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {BaseComponent, baseOptions} from '../../base.component';
+import {AbstractComponent, abstractOptions} from '../../abstract.component';
 
-@Component(baseOptions)
-export class DrawingCurveComponent extends BaseComponent {
+@Component(abstractOptions)
+export class DrawingCurveComponent extends AbstractComponent {
 
     private x0 = 100;
     private y0 = 200;

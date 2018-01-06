@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {BaseComponent, baseOptions} from '../../base.component';
+import {AbstractComponent, abstractOptions} from '../../abstract.component';
 import {Box} from '../../../domains/entities/Box';
 
-@Component(baseOptions)
-export class BoxesComponent extends BaseComponent {
+@Component(abstractOptions)
+export class BoxesComponent extends AbstractComponent {
 
     private box: Box;
     private boxes: Box[] = [];

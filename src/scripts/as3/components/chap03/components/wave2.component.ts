@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {baseOptions, BaseComponent} from '../../base.component';
+import {abstractOptions, AbstractComponent} from '../../abstract.component';
 
-@Component(baseOptions)
-export class Wave2Component extends BaseComponent {
+@Component(abstractOptions)
+export class Wave2Component extends AbstractComponent {
 
     private angle = 0;
     private range = 50;

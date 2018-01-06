@@ -1,11 +1,11 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {BaseComponent, baseOptions} from '../../base.component';
+import {AbstractComponent, abstractOptions} from '../../abstract.component';
 import {Ball} from '../../../domains/entities/Ball';
 import MouseEvent = createjs.MouseEvent;
 
-@Component(baseOptions)
-export class DistanceComponent extends BaseComponent {
+@Component(abstractOptions)
+export class DistanceComponent extends AbstractComponent {
 
     private ball1: Ball;
     private ball2: Ball;

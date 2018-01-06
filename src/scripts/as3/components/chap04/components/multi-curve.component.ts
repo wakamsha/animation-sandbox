@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {BaseComponent, baseOptions} from '../../base.component';
+import {AbstractComponent, abstractOptions} from '../../abstract.component';
 
-@Component(baseOptions)
-export class MultiCurveComponent extends BaseComponent {
+@Component(abstractOptions)
+export class MultiCurveComponent extends AbstractComponent {
 
     private line: createjs.Shape;
     private numPoints = 5;

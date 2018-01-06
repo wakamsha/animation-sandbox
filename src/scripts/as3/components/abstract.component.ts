@@ -1,12 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 
-export const baseOptions = {
+export const abstractOptions = {
     template: '<canvas id="stage" class="stage"></canvas>'
 };
 
-@Component(baseOptions)
-export class BaseComponent implements OnInit {
+@Component(abstractOptions)
+export class AbstractComponent implements OnInit, OnDestroy {
 
     protected stage: createjs.Stage;
     protected canvas: HTMLCanvasElement;
@@ -18,15 +18,18 @@ export class BaseComponent implements OnInit {
     protected stageHeight = 0;
     protected centerX = 0;
     protected centerY = 0;
-
     protected title: string;
 
-    private resizeTimer: any;
+    private resizeTimerHandle = 0;
     private interval = 0;
 
     constructor(private titleService: Title) {}
 
     ngOnInit() {}
+
+    ngOnDestroy() {
+        createjs.Ticker.removeAllEventListeners('tick');
+    }
 
     protected init() {
         this.titleService.setTitle(`${this.title} | Animation Sandbox w/ TypeScript`);
@@ -43,10 +46,10 @@ export class BaseComponent implements OnInit {
     protected onEnterFrame() {}
 
     private onResize() {
-        if (this.resizeTimer) {
-            clearTimeout(this.resizeTimer);
+        if (this.resizeTimerHandle) {
+            clearTimeout(this.resizeTimerHandle);
         }
-        this.resizeTimer = setTimeout(() => this.updateStageSize(), this.interval);
+        this.resizeTimerHandle = setTimeout(() => this.updateStageSize(), this.interval);
     }
 
     private updateStageSize() {

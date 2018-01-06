@@ -1,12 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 
-export const baseOptions = {
+export const abstractOptions = {
     template: '<canvas id="stage" class="stage"></canvas>'
 };
 
-@Component(baseOptions)
-export class BaseComponent implements OnInit {
+@Component(abstractOptions)
+export class AbstractComponent implements OnInit, OnDestroy {
 
     protected stage: HTMLCanvasElement;
     protected ctx: CanvasRenderingContext2D;
@@ -18,15 +18,19 @@ export class BaseComponent implements OnInit {
     protected stageHeight = 0;
     protected centerX = 0;
     protected centerY = 0;
-
     protected title: string;
 
-    private resizeTimer: any;
+    private enterFrameHandle = 0;
+    private resizeTimerHandle = 0;
     private interval = 0;
 
     constructor(private titleService: Title) {}
 
     ngOnInit() {}
+
+    ngOnDestroy() {
+        clearInterval(this.enterFrameHandle);
+    }
 
     protected init(enableTicker: boolean = true) {
         this.titleService.setTitle(`${this.title} | Animation Sandbox w/ TypeScript`);
@@ -38,7 +42,9 @@ export class BaseComponent implements OnInit {
         window.addEventListener('resize', () => this.onResize());
         this.updateStageSize();
 
-        enableTicker && setInterval(() => this.onEnterFrame(), 1000 / 30);
+        if (enableTicker) {
+            this.enterFrameHandle = setInterval(() => this.onEnterFrame(), 1000 / 30);
+        }
     }
 
     protected onEnterFrame() {}
@@ -46,11 +52,11 @@ export class BaseComponent implements OnInit {
     protected onResized() {}
 
     private onResize() {
-        if (this.resizeTimer) {
-            clearTimeout(this.resizeTimer);
+        if (this.resizeTimerHandle) {
+            clearTimeout(this.resizeTimerHandle);
             this.onResized();
         }
-        this.resizeTimer = setTimeout(() => this.updateStageSize(), this.interval);
+        this.resizeTimerHandle = setTimeout(() => this.updateStageSize(), this.interval);
     }
 
     private updateStageSize() {

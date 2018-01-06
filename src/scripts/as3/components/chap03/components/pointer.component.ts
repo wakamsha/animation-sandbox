@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {baseOptions, BaseComponent} from '../../base.component';
+import {abstractOptions, AbstractComponent} from '../../abstract.component';
 import {Arrow} from '../../../domains/entities/Arrow';
 
-@Component(baseOptions)
-export class PointerComponent extends BaseComponent {
+@Component(abstractOptions)
+export class PointerComponent extends AbstractComponent {
 
     private lineX: createjs.Shape;
     private lineY: createjs.Shape;

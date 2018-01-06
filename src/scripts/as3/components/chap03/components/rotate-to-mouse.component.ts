@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
-import {baseOptions, BaseComponent} from '../../base.component';
+import {abstractOptions, AbstractComponent} from '../../abstract.component';
 import {Arrow} from '../../../domains/entities/Arrow';
 import {Title} from '@angular/platform-browser';
 
-@Component(baseOptions)
-export class RotateToMouseComponent extends BaseComponent {
+@Component(abstractOptions)
+export class RotateToMouseComponent extends AbstractComponent {
 
     private arrow: Arrow;
 

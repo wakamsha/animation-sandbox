@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
-import {BaseComponent, baseOptions} from '../../base.component';
+import {AbstractComponent, abstractOptions} from '../../base.component';
 import {Title} from '@angular/platform-browser';
 
-@Component(baseOptions)
-export class MatrixColorfulRainComponent extends BaseComponent {
+@Component(abstractOptions)
+export class MatrixColorfulRainComponent extends AbstractComponent {
 
     private FONT_FAMILY = 'arial';
     private FONT_SIZE = 10;

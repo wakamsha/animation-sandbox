@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
-import {BaseComponent, baseOptions} from '../../base.component';
+import {AbstractComponent, abstractOptions} from '../../base.component';
 import {Title} from '@angular/platform-browser';
 
-@Component(baseOptions)
-export class TvNoiseComponent extends BaseComponent {
+@Component(abstractOptions)
+export class TvNoiseComponent extends AbstractComponent {
 
     private dt: ImageData;
     private dd: Uint8ClampedArray;

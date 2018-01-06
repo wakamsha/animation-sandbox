@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
 import {Ball} from '../../../domains/entities/Ball';
-import {BaseComponent, baseOptions} from '../../base.component';
+import {AbstractComponent, abstractOptions} from '../../abstract.component';
 
-@Component(baseOptions)
-export class BobbingComponent extends BaseComponent {
+@Component(abstractOptions)
+export class BobbingComponent extends AbstractComponent {
 
     private ball: Ball;
     private angle = 0;

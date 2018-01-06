@@ -1,10 +1,10 @@
 import {Component} from '@angular/core';
 import {Title} from '@angular/platform-browser';
-import {baseOptions, BaseComponent} from '../../base.component';
+import {abstractOptions, AbstractComponent} from '../../abstract.component';
 import {Ball} from '../../../domains/entities/Ball';
 
-@Component(baseOptions)
-export class OvalComponent extends BaseComponent {
+@Component(abstractOptions)
+export class OvalComponent extends AbstractComponent {
 
     private ball: Ball;
     private rail: createjs.Shape;
