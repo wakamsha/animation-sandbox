@@ -6,6 +6,7 @@ import {IndexComponent} from './components/index.component';
 import {ChapModule as TypographyModule} from './components/typography/chap.module';
 import {ChapModule as ParticleModule} from './components/particle/chap.module';
 import {ChapModule as TutorialModule} from './components/tutorial/chap.module';
+import {ChapModule as FractalModule} from './components/fractal/chap.module';
 
 @NgModule({
     imports: [
@@ -14,7 +15,8 @@ import {ChapModule as TutorialModule} from './components/tutorial/chap.module';
         routing,
         TypographyModule,
         ParticleModule,
-        TutorialModule
+        TutorialModule,
+        FractalModule
     ],
     declarations: [
         IndexComponent

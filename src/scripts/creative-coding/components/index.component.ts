@@ -5,6 +5,7 @@ import {Chapter} from '../../declares/interface';
 import {ChapService as TypographyService} from './typography/chap.service';
 import {ChapService as ParticleService} from './particle/chap.service';
 import {ChapService as TutorialService} from './tutorial/chap.service';
+import {ChapService as FractalService} from './fractal/chap.service';
 
 @Component({
     template: `
@@ -18,12 +19,14 @@ export class IndexComponent implements OnInit {
     constructor(private router: Router,
                 private typographyService: TypographyService,
                 private particleService: ParticleService,
-                private tutorialService: TutorialService) {}
+                private tutorialService: TutorialService,
+                private fractalService: FractalService) {}
 
     ngOnInit() {
         this.typographyService.getChapter().then(chapter => this.addChapter(chapter));
         this.particleService.getChapter().then(chapter => this.addChapter(chapter));
         this.tutorialService.getChapter().then(chapter => this.addChapter(chapter));
+        this.fractalService.getChapter().then(chapter => this.addChapter(chapter));
     }
 
     public onSelect(page: Page) {
