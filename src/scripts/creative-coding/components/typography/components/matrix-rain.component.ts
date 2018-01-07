@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {AbstractComponent, abstractOptions} from '../../base.component';
+import {AbstractComponent, abstractOptions} from '../../abstract.component';
 import {Title} from '@angular/platform-browser';
 
 @Component(abstractOptions)
@@ -23,6 +23,10 @@ export class MatrixRainComponent extends AbstractComponent {
         this.ctx.font = `${this.FONT_SIZE}px ${this.FONT_FAMILY}`;
         this.letters = this.CHAR_SET.split('');
         this.refreshColumns();
+    }
+
+    ngOnDestroy() {
+        super.destroy();
     }
 
     protected onEnterFrame() {

@@ -3,6 +3,7 @@ import {ModuleWithProviders} from '@angular/core';
 import {IndexComponent} from './components/index.component';
 import {routes as typographyRoutes} from './components/typography/chap.routing';
 import {routes as particleRoutes} from './components/particle/chap.routing';
+import {routes as tutorialRoutes} from './components/tutorial/chap.routing';
 
 const routes: Routes = [
     {
@@ -10,7 +11,8 @@ const routes: Routes = [
         component: IndexComponent,
         children: [
             ...typographyRoutes,
-            ...particleRoutes
+            ...particleRoutes,
+            ...tutorialRoutes
         ]
     }
 ];

@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {AbstractComponent, abstractOptions} from '../../base.component';
+import {AbstractComponent, abstractOptions} from '../../abstract.component';
 import {Title} from '@angular/platform-browser';
 
 @Component(abstractOptions)
@@ -17,6 +17,10 @@ export class TvNoiseComponent extends AbstractComponent {
     ngOnInit() {
         super.init();
         this.setupData();
+    }
+
+    ngOnDestroy() {
+        super.destroy();
     }
 
     protected onEnterFrame() {

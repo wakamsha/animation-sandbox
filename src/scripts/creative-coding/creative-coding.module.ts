@@ -5,6 +5,7 @@ import {routing} from './creative-coding.routing';
 import {IndexComponent} from './components/index.component';
 import {ChapModule as TypographyModule} from './components/typography/chap.module';
 import {ChapModule as ParticleModule} from './components/particle/chap.module';
+import {ChapModule as TutorialModule} from './components/tutorial/chap.module';
 
 @NgModule({
     imports: [
@@ -12,7 +13,8 @@ import {ChapModule as ParticleModule} from './components/particle/chap.module';
         SharedModule,
         routing,
         TypographyModule,
-        ParticleModule
+        ParticleModule,
+        TutorialModule
     ],
     declarations: [
         IndexComponent

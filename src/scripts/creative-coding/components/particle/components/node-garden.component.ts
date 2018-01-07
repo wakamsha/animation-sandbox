@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {AbstractComponent, abstractOptions} from '../../base.component';
+import {AbstractComponent, abstractOptions} from '../../abstract.component';
 import {Title} from '@angular/platform-browser';
 import {Ball} from '../domains/entities/Ball';
 
@@ -27,6 +27,10 @@ export class NodeGardenComponent extends AbstractComponent {
             this.particles[i] = ball;
         }
         this.ctx.lineWidth = 1.5;
+    }
+
+    ngOnDestroy() {
+        super.destroy();
     }
 
     protected onEnterFrame() {

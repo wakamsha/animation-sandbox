@@ -4,6 +4,7 @@ import {Router} from '@angular/router';
 import {Chapter} from '../../declares/interface';
 import {ChapService as TypographyService} from './typography/chap.service';
 import {ChapService as ParticleService} from './particle/chap.service';
+import {ChapService as TutorialService} from './tutorial/chap.service';
 
 @Component({
     template: `
@@ -16,11 +17,13 @@ export class IndexComponent implements OnInit {
 
     constructor(private router: Router,
                 private typographyService: TypographyService,
-                private particleService: ParticleService) {}
+                private particleService: ParticleService,
+                private tutorialService: TutorialService) {}
 
     ngOnInit() {
         this.typographyService.getChapter().then(chapter => this.addChapter(chapter));
         this.particleService.getChapter().then(chapter => this.addChapter(chapter));
+        this.tutorialService.getChapter().then(chapter => this.addChapter(chapter));
     }
 
     public onSelect(page: Page) {

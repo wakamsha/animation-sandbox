@@ -28,9 +28,7 @@ export class AbstractComponent implements OnInit, OnDestroy {
 
     ngOnInit() {}
 
-    ngOnDestroy() {
-        clearInterval(this.enterFrameHandle);
-    }
+    ngOnDestroy() {}
 
     protected init(enableTicker: boolean = true) {
         this.titleService.setTitle(`${this.title} | Animation Sandbox w/ TypeScript`);
@@ -45,6 +43,10 @@ export class AbstractComponent implements OnInit, OnDestroy {
         if (enableTicker) {
             this.enterFrameHandle = setInterval(() => this.onEnterFrame(), 1000 / 30);
         }
+    }
+
+    protected destroy() {
+        clearInterval(this.enterFrameHandle);
     }
 
     protected onEnterFrame() {}
