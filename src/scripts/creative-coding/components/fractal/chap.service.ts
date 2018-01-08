@@ -5,8 +5,8 @@ import {TriangleComponent} from './components/triangle.component';
 import {SquareComponent} from './components/square.component';
 
 export const chapter: Chapter = {
-    directory: 'tutorial',
-    title: 'Tutorial',
+    directory: 'fractal',
+    title: 'Fractal',
     routes: {
         'circle': CircleComponent,
         'triangle': TriangleComponent,
