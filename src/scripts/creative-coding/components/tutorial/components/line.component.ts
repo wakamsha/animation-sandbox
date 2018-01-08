@@ -1,16 +1,13 @@
 import {Component} from '@angular/core';
 import {AbstractComponent, abstractOptions} from '../../abstract.component';
 import {Title} from '@angular/platform-browser';
-
-type Position = {
-    x: number;
-    y: number;
-}
+import {Position} from '../../../../declares/interface';
 
 @Component(abstractOptions)
 export class LineComponent extends AbstractComponent {
 
     private mousePos: Position;
+
     constructor(a: Title) {
         super(a);
         this.title = 'Line';
