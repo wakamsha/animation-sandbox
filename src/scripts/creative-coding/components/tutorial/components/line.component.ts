@@ -1,11 +1,7 @@
 import {Component} from '@angular/core';
 import {AbstractComponent, abstractOptions} from '../../abstract.component';
 import {Title} from '@angular/platform-browser';
-
-type Position = {
-    x: number;
-    y: number;
-}
+import {Position} from '../../../../declares/interface';
 
 @Component(abstractOptions)
 export class LineComponent extends AbstractComponent {
@@ -36,13 +32,5 @@ export class LineComponent extends AbstractComponent {
         this.ctx.moveTo(this.centerX, this.centerY);
         this.ctx.lineTo(this.mousePos.x, this.mousePos.y);
         this.ctx.stroke();
-    }
-
-    private getMousePosition(e: MouseEvent): Position {
-        const rect = this.stage.getBoundingClientRect();
-        return {
-            x: e.clientX - rect.left,
-            y: e.clientY - rect.top
-        };
     }
 }

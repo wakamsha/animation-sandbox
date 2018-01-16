@@ -1,5 +1,6 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 import {Title} from '@angular/platform-browser';
+import {Position} from '../../declares/interface';
 
 export const abstractOptions = {
     template: '<canvas id="stage" class="stage"></canvas>'
@@ -52,6 +53,14 @@ export class AbstractComponent implements OnInit, OnDestroy {
     protected onEnterFrame() {}
 
     protected onResized() {}
+
+    protected getMousePosition(e: MouseEvent): Position {
+        const rect = this.stage.getBoundingClientRect();
+        return {
+            x: e.clientX - rect.left,
+            y: e.clientY - rect.top
+        };
+    }
 
     private onResize() {
         if (this.resizeTimerHandle) {
