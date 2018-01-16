@@ -7,6 +7,7 @@ import {Position} from '../../../../declares/interface';
 export class LineComponent extends AbstractComponent {
 
     private mousePos: Position;
+
     constructor(a: Title) {
         super(a);
         this.title = 'Line';
