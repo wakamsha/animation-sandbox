@@ -4,6 +4,8 @@ import {Injectable} from '@angular/core';
 import {TvNoiseComponent} from './components/tv-noise.component';
 import {BlindingLightComponent} from './components/blinding-light.component';
 import {NodeGardenLineComponent} from './components/node-garden-line.component';
+import {BlightComponent} from './components/blight.component';
+import {BlightParticleComponent} from './components/blight-particle.component';
 
 export const chapter: Chapter = {
     directory: 'particle',
@@ -12,6 +14,8 @@ export const chapter: Chapter = {
         'node-garden'      : NodeGardenComponent,
         'node-garden-line' : NodeGardenLineComponent,
         'TV-noise'         : TvNoiseComponent,
+        'blight'           : BlightComponent,
+        'blight-particle'  : BlightParticleComponent,
         'blinding-light'   : BlindingLightComponent
     }
 };
