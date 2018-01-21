@@ -6,6 +6,7 @@ import {BlindingLightComponent} from './components/blinding-light.component';
 import {NodeGardenLineComponent} from './components/node-garden-line.component';
 import {BlightComponent} from './components/blight.component';
 import {BlightParticleComponent} from './components/blight-particle.component';
+import {TailComponent} from './components/tail.component';
 
 export const chapter: Chapter = {
     directory: 'particle',
@@ -16,7 +17,8 @@ export const chapter: Chapter = {
         'TV-noise'         : TvNoiseComponent,
         'blight'           : BlightComponent,
         'blight-particle'  : BlightParticleComponent,
-        'blinding-light'   : BlindingLightComponent
+        'blinding-light'   : BlindingLightComponent,
+        'tail'             : TailComponent
     }
 };
 
