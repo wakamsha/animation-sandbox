@@ -7,7 +7,7 @@ import {Position} from '../../../../declares/interface';
 @Component(abstractOptions)
 export class BlindingLightComponent extends AbstractComponent {
 
-    private numOfParticle = 200;
+    private NUM_OF_PARTICLE = 200;
     private particles: Particle[] = [];
     private repel = true;
     private viscosity = .007;
@@ -24,8 +24,10 @@ export class BlindingLightComponent extends AbstractComponent {
         super.init();
         this.mouse = { x: 0, y: 0 };
         this.stage.addEventListener('mousemove', (e) => this.mouse = this.getMousePosition(e));
+        this.stage.addEventListener('mousedown', () => this.repel = false);
+        this.stage.addEventListener('mouseup', () => this.repel = true);
 
-        for (let i = 0; i < this.numOfParticle; i++) {
+        for (let i = 0; i < this.NUM_OF_PARTICLE; i++) {
             this.particles[i] = new Particle(Math.random() * this.stageWidth, Math.random() * this.stageHeight);
         }
     }
@@ -33,73 +35,67 @@ export class BlindingLightComponent extends AbstractComponent {
     ngOnDestroy() {
         super.destroy();
         this.stage.removeEventListener('mousemove', this.stage.onmousemove);
+        this.stage.removeEventListener('mousedown', this.stage.onmousedown);
+        this.stage.removeEventListener('mouseup', this.stage.onmouseup);
     }
 
     protected onEnterFrame() {
-        if (this.toggle = !this.toggle) {
-            this.step();
-        } else {
-            this.draw();
+        this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
+        this.ctx.globalCompositeOperation = 'lighter';
+        this.ctx.globalAlpha = .8;
+        for (let particle of this.particles) {
+            if (this.toggle = !this.toggle) {
+                this.stepParticle(particle);
+            } else {
+                this.drawParticle(particle);
+            }
         }
     }
 
-    private step() {
-        this.particles.forEach(particle => {
-            const dx = this.mouse.x - particle.x;
-            const dy = this.mouse.y - particle.y;
-            const dSq = dx * dx + dy * dy;
+    private stepParticle(p: Particle) {
+        const dx = this.mouse.x - p.x;
+        const dy = this.mouse.y - p.y;
+        const dsq = dx * dx + dy * dy;
 
-            if( true || dSq < particle.minDistSq ) {
-                let f = dSq / particle.minDistSq;
-                f = f < 0 ? 0 : f > 1 ? 1 : f;
+        if (true || dsq < p.minDistSq) {
+            let f = dsq / p.minDistSq;
+            f = f < 0 ? 0 : f > 1 ? 1 : f;
 
-                const a = Math.atan2(dy,dx);
+            const a = Math.atan2(dy, dx);
 
-                if( this.repel ) {
-                    f = -f;
-                }
-
-                // Sum forces
-                particle.fx += Math.cos(a) * f;
-                particle.fy += Math.sin(a) * f;
+            if (this.repel) {
+                f = -f;
             }
 
+            p.fx += Math.cos(a) * f;
+            p.fy += Math.sin(a) * f;
+        }
 
-            particle.fx += (particle.ox - particle.x) * this.viscosity * particle.mass;
-            particle.fy += (particle.oy - particle.y) * this.viscosity * particle.mass;
+        p.fx += (p.ox - p.x) * this.viscosity * p.mass;
+        p.fy += (p.oy - p.y) * this.viscosity * p.mass;
 
-            // Euler integration step
-            particle.vx += particle.fx / particle.mass;
-            particle.vy += particle.fy / particle.mass;
+        p.vx += p.fx / p.mass;
+        p.vy += p.fy / p.mass;
 
-            particle.x += particle.vx;
-            particle.y += particle.vy;
+        p.x += p.vx;
+        p.y += p.vy;
 
-            // Dampen velocity
-            particle.vx *= 0.95;
-            particle.vy *= 0.95;
+        p.vx *= 0.95;
+        p.vy *= 0.95;
 
-            // Clear forces
-            particle.fx = particle.fy = 0;
-        });
+        p.fx = p.fy = 0;
     }
 
-    private draw() {
-        this.particles.forEach(particle => {
-            const gradient = this.ctx.createRadialGradient(particle.x, particle.y, 0, particle.x, particle.y, particle.mass * 300);
-            gradient.addColorStop(1, 'transparent');
-            gradient.addColorStop(0, particle.getColorHex(particle.radians -= .05));
+    private drawParticle(p: Particle) {
+        const gradient = this.ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, p.mass * 300);
+        gradient.addColorStop(0, p.getColorHex(p.radians -= 0.05));
+        gradient.addColorStop(1, 'transparent');
 
-            this.ctx.globalCompositeOperation = 'lighter';
-            this.ctx.beginPath();
-            this.ctx.arc(particle.x, particle.y, (particle.mass * 300) + Math.abs(Math.cos(particle.radians) * 2), 0, Math.PI * 2, false);
-            this.ctx.closePath();
+        this.ctx.beginPath();
+        this.ctx.arc(p.x, p.y, (p.mass  *300) + Math.abs(Math.cos(p.radians) * 2), 0, Math.PI * 2, false);
+        this.ctx.closePath();
 
-            this.ctx.globalAlpha = .8;
-            this.ctx.fillStyle = gradient;
-            this.ctx.fill();
-        });
+        this.ctx.fillStyle = gradient;
+        this.ctx.fill();
     }
-
-
 }

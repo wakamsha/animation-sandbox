@@ -8,15 +8,13 @@ export class Particle {
     public ox: number;
     public oy: number;
     public mass: number;
-    // public minDist = 10;
     public radians = Math.random() * 90;
-    public minDistSq: number;
+    public minDistSq = 100;
 
     constructor(x: number, y: number) {
-        this.x = this.ox = x || 0;
-        this.y = this.oy = y || 0;
+        this.x = this.ox = x;
+        this.y = this.oy = y;
         this.mass = .05 + Math.random() * .9;
-        this.minDistSq = 100;
     }
 
     public getColorHex(radians: number): string {

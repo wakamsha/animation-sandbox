@@ -16,26 +16,24 @@ export class BlightParticleComponent extends AbstractComponent {
 
     ngOnInit() {
         super.init();
-        // this.ctx.globalAlpha = .8;
-        this.ctx.globalCompositeOperation = 'lighter';
-
         for (let i = 0; i < this.NUM_OF_PARTICLE; i++) {
             const x = Math.random() * this.stageWidth;
             const y = Math.random() * this.stageHeight;
-            const particle = this.createParticle(x, y);
-            this.drawParticle(particle);
-            this.particles[i] = particle;
+            this.particles[i] = this.createParticle(x, y);
         }
     }
 
     protected onEnterFrame() {
         this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
-        this.particles.forEach(particle => {
+        this.ctx.globalAlpha = .8;
+        this.ctx.globalCompositeOperation = 'lighter';
+
+        for (let particle of this.particles) {
             particle.x += particle.vx;
             particle.y += particle.vy;
             this.checkWalls(particle);
             this.drawParticle(particle);
-        })
+        }
     }
 
     private createParticle(x: number, y: number): Particle {
