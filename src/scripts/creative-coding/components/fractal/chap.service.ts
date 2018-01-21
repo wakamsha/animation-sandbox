@@ -3,6 +3,7 @@ import {Injectable} from '@angular/core';
 import {CircleComponent} from './components/circle.component';
 import {TriangleComponent} from './components/triangle.component';
 import {SquareComponent} from './components/square.component';
+import {SphereComponent} from './components/sphere.component';
 
 export const chapter: Chapter = {
     directory: 'fractal',
@@ -10,7 +11,8 @@ export const chapter: Chapter = {
     routes: {
         'circle': CircleComponent,
         'triangle': TriangleComponent,
-        'square': SquareComponent
+        'square': SquareComponent,
+        'sphere' : SphereComponent
     }
 };
 
