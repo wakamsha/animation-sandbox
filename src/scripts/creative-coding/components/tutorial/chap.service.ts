@@ -5,6 +5,7 @@ import {LineComponent} from './components/line.component';
 import {ArcComponent} from './components/arc.component';
 import {QuadraticCurveComponent} from './components/quadratic-curve.component';
 import {BezierCurveComponent} from './components/bezier-curve.component';
+import {CountdownCircleComponent} from './components/countdown-circle.component';
 
 export const chapter: Chapter = {
     directory: 'tutorial',
@@ -14,7 +15,8 @@ export const chapter: Chapter = {
         'line' : LineComponent,
         'arc': ArcComponent,
         'quadratic-curve': QuadraticCurveComponent,
-        'bezier-curve': BezierCurveComponent
+        'bezier-curve': BezierCurveComponent,
+        'countdown-circle': CountdownCircleComponent
     }
 };
 
