@@ -16,6 +16,10 @@ export class CircleComponent extends AbstractComponent {
         this.drawCircle({x: this.centerX, y: this.centerY, r: 226});
     }
 
+    ngOnDestroy() {
+        super.destroy();
+    }
+
     private drawCircle({x, y, r}: {
         x: number;
         y: number;

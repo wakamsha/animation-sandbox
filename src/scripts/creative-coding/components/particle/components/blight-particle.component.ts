@@ -23,6 +23,10 @@ export class BlightParticleComponent extends AbstractComponent {
         }
     }
 
+    ngOnDestroy() {
+        super.destroy();
+    }
+
     protected onEnterFrame() {
         this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
         this.ctx.globalAlpha = .8;

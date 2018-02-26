@@ -33,12 +33,13 @@
   },
   "scripts": {
     "reset": "rm -rf public; mkdir -p public/assets",
+    "copy": "cp -r static/* public/assets",
     "style:watch": "stylus src/styles/main.styl -o public/assets/app.css -m -w",
     "style:build": "stylus src/styles/main.styl -o public/assets/app.css -c",
     "template:watch": "pug src/templates -o public/ -w",
     "template:build": "pug src/templates -o public",
     "script:watch": "webpack --progress --colors --config webpack.config.js --watch -d",
     "serv": "browser-sync start -c bs-config.js",
-    "start": "yarn reset; concurrently \"yarn style:watch\" \"yarn template:watch\" \"yarn script:watch\" \"yarn serv\""
+    "start": "yarn reset; yarn copy; concurrently \"yarn style:watch\" \"yarn template:watch\" \"yarn script:watch\" \"yarn serv\""
   }
 }

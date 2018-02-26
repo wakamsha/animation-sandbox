@@ -62,6 +62,10 @@ export class SineWaveComponent extends AbstractComponent {
         this.refresh();
     }
 
+    ngOnDestroy() {
+        super.destroy();
+    }
+
     onEnterFrame() {
         this.ctx.clearRect(0, 0, this.stageWidth, this.stageHeight);
         this.update();
