@@ -11,7 +11,7 @@ export class GlitchLogoComponent extends AbstractComponent {
 
     constructor(a: Title) {
         super(a);
-        this.title = 'Glitch logo';
+        this.title = 'Glitch logo1';
     }
 
     ngOnInit() {
